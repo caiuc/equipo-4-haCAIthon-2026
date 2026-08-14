@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node sweep.mjs)",
+      "Bash(sed -i '' -e 's/backdrop-blur-xl md:hidden\">/backdrop-blur-xl lg:hidden\">/' -e 's/py-3 md:hidden\">/py-3 lg:hidden\">/' -e 's/pb-\\\\[96px\\\\] md:pb-stack-lg/pb-[96px] lg:pb-stack-lg/' -e 's/px-container-margin md:hidden\"/px-container-margin lg:hidden\"/' -e 's/text-center md:hidden page\"/text-center lg:hidden page\"/' -e 's/md:top-\\\\[76px\\\\]/lg:top-[76px]/' src/App.tsx src/components/layout/BottomNav.tsx src/components/layout/TopAppBar.tsx src/pages/Explore.tsx src/pages/RestaurantDetail.tsx)",
+      "Bash(sed -i '' 's/hidden items-center justify-between gap-8 py-3 md:flex page/hidden items-center justify-between gap-8 py-3 lg:flex page/' src/components/layout/TopAppBar.tsx)",
+      "Bash(node capture.mjs 1440 1000 d-rank.png \"http://localhost:5177/ranking\")",
+      "Bash(node capture.mjs 1440 1000 d-rest2.png \"http://localhost:5177/restaurante/green-bowl\")",
+      "Bash(python3 -)",
+      "Bash(node capture.mjs 390 844 m-perfil.png \"http://localhost:5177/perfil\")",
+      "Bash(pkill -f \"vite.*5177\")",
+      "Bash(pkill -f \"cdp-.*greenloop\")"
+    ]
+  }
+}
