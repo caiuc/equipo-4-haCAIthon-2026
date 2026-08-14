@@ -1,10 +1,6 @@
 # RIU · Delivery Sustentable
 
 <p align="center">
-  <img src="./templates/global_overview/overview.png" alt="Vista general del prototipo RIU" width="100%" style="border-radius: 16px;" />
-</p>
-
-<p align="center">
   <b>Una app de delivery donde el envase no se regala: se presta.<br/>
   Elegir envase retornable te sale más barato, devolverlo te da recompensas,<br/>
   y al local le conviene ofrecerlo.</b>
