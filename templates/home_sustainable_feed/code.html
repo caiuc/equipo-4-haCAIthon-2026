@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conscious Consumer App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e2e3db",
+                    "on-surface-variant": "#414844",
+                    "inverse-primary": "#a5d0b9",
+                    "surface-bright": "#f9faf2",
+                    "secondary-fixed-dim": "#86d7ad",
+                    "secondary": "#116c4a",
+                    "tertiary-fixed-dim": "#bfc9c3",
+                    "on-tertiary-fixed": "#151d1a",
+                    "on-primary-container": "#86af99",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edefe7",
+                    "primary-fixed": "#c1ecd4",
+                    "surface": "#f9faf2",
+                    "on-secondary-fixed": "#002113",
+                    "surface-tint": "#3f6653",
+                    "primary": "#012d1d",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#dbe5df",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e8e9e1",
+                    "surface-dim": "#d9dbd3",
+                    "primary-container": "#1b4332",
+                    "secondary-container": "#a1f4c8",
+                    "outline": "#717973",
+                    "on-primary-fixed": "#002114",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-surface": "#1a1c18",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "on-secondary-container": "#1b724f",
+                    "inverse-surface": "#2f312c",
+                    "on-tertiary-container": "#9fa9a3",
+                    "secondary-fixed": "#a1f4c8",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f9faf2",
+                    "surface-container-low": "#f3f4ec",
+                    "on-background": "#1a1c18",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "tertiary": "#1f2825",
+                    "surface-container-highest": "#e2e3db",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f0f1e9",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c1c8c2",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#3f4945",
+                    "tertiary-container": "#353e3a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "16px",
+                    "stack-md": "12px",
+                    "stack-sm": "4px",
+                    "container-margin": "20px",
+                    "stack-lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg": [
+                            "40px",
+                            {
+                                    "lineHeight": "48px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "title-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            padding-bottom: 80px; /* Space for bottom nav */
+        }
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen relative">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 bg-background dark:bg-background z-40 sticky pt-4 pb-2 px-container-margin">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-2 cursor-pointer hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors p-1 rounded-lg">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Deliver to</span>
+<div class="flex items-center gap-1">
+<span class="font-title-md text-title-md text-primary font-bold">123 Greenway Ave</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-full shadow-sm hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="bg-primary-fixed-dim rounded-full p-1 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-title-md text-title-md text-primary font-bold leading-tight">250</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant leading-tight">Green Points</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex flex-col gap-stack-lg pb-stack-lg">
+<!-- Hero Section -->
+<section class="px-container-margin pt-4 relative">
+<div class="flex justify-between items-end relative z-10">
+<div class="max-w-[60%] z-20">
+<h1 class="font-display-lg text-display-lg text-primary mb-2 relative inline-block">
+                        Good food.<br/>
+<span class="text-secondary">Better planet.</span>
+<span class="material-symbols-outlined absolute -top-4 -right-8 text-secondary transform rotate-12" style="font-variation-settings: 'FILL' 1;">energy_savings_leaf</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xs">
+                        Eco-friendly delivery, responsible choices.
+                    </p>
+</div>
+<div class="absolute right-0 top-0 w-[55%] h-[180px] -mt-8 -mr-4 pointer-events-none">
+<!-- Placeholder for image https://lh3.googleusercontent.com/aida-public/AB6AXuDzmcG-CC67lzbDnkRUILAmUngqE-dotN_nXP8JnhGa9LypkFUowSy9QhdtFhlyyI-oXzFCVLZXt1qnPxCgCgvzgFyjWn6qXrlnSxQ3p5cL7g-beYSmJ-fS6uR43FzHaLHsipiVxYWzOCNWD0kK0pLh0jgbExmmqTCwHz6s1BohJMmszEOBa46GnCkmKUFHASGsxU2yB9b7GACHABoVPYO6pmHDDEtjxH4-dGaTQodmWLNSRLMv0NT31uzZ2ZSS-7_Kgg -->
+<img alt="Illustration of a brown paper grocery bag filled with green leaves and a planet earth symbol, set against a soft warm background, embodying an eco-friendly organic food aesthetic." class="w-full h-full object-contain object-right-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpWtuZQH_ObSKB9xN4xFd1eWwIJkTtdGjAzQtG2ZXY162zFFjftyJfdYL7ClTy7DNB-qlJCa9GaK2FFZWMQGF58pe78qAq-SBlbnK1TAOAM2NxPOf5eHycmF_8ytP4_9RMDmZ0InnIzfqMK7NtHVWZ7wkNSmUKnApNRTCz2AjuxEK1lAqM7wk_rDAq_kJ2aPXHA5kwPaMgIYuj5YCXebp6ptl-r0HNZ6QxvXSWKOJdGutKIqXRNJyfxzGTCerBjUaHPA"/>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="mt-8 flex gap-2 z-20 relative">
+<div class="flex-1 bg-surface-container-lowest shadow-sm rounded-full flex items-center px-4 py-3 border border-outline-variant/30 hover:border-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-on-surface-variant mr-3 group-hover:text-primary transition-colors">search</span>
+<input class="bg-transparent border-none outline-none focus:ring-0 w-full font-body-md text-body-md text-primary placeholder-on-surface-variant/70 p-0" placeholder="Search for healthy food, grocers, etc." type="text"/>
+</div>
+<button class="bg-surface-container-lowest shadow-sm rounded-full w-12 h-12 flex items-center justify-center border border-outline-variant/30 hover:bg-surface-container-low transition-colors shrink-0">
+<span class="material-symbols-outlined text-primary">tune</span>
+</button>
+</div>
+</section>
+<!-- Categories -->
+<section class="px-container-margin">
+<div class="flex justify-between bg-surface-container-lowest rounded-xl p-4 shadow-[0px_4px_20px_rgba(17,108,74,0.04)] gap-2 overflow-x-auto no-scrollbar">
+<div class="flex flex-col items-center gap-2 cursor-pointer group min-w-[70px]">
+<div class="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-primary leading-tight font-semibold">Sustainable<br/>Restaurants</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group min-w-[70px]">
+<div class="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-secondary text-2xl">recycling</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant leading-tight">Zero-Waste<br/>Packaging</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group min-w-[70px]">
+<div class="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant leading-tight">Plant-Based<br/>Options</span>
+</div>
+<div class="flex flex-col items-center gap-2 cursor-pointer group min-w-[70px]">
+<div class="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<span class="font-label-sm text-label-sm text-center text-on-surface-variant leading-tight">Local &amp;<br/>Organic</span>
+</div>
+</div>
+</section>
+<!-- Recommended Section -->
+<section class="pl-container-margin overflow-hidden">
+<div class="flex justify-between items-center pr-container-margin mb-stack-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Recommended for you</h2>
+<button class="flex items-center text-secondary hover:text-primary transition-colors font-label-sm text-label-sm">
+                    See all <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+</button>
+</div>
+<div class="flex gap-gutter overflow-x-auto no-scrollbar pb-4 pr-container-margin snap-x">
+<!-- Card 1 -->
+<div class="min-w-[280px] w-[280px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(17,108,74,0.04)] snap-start hover:shadow-[0px_10px_30px_rgba(17,108,74,0.08)] transition-shadow duration-300">
+<div class="relative h-[160px] w-full">
+<div class="bg-cover bg-center w-full h-full" data-alt="A top-down view of a fresh, healthy falafel bowl filled with green avocado, fresh mixed greens, and perfectly rounded falafels, served in an earthy ceramic bowl on a rustic wooden table with natural lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-pBRvHz2-__gJLWOL3jcCFS2REWFiFpfYHaLjj4fKVlmsPZBHbeKXViwAdLoZy-r_urL4XAAOos3CF2QBTGRNY8rKPnQC-nTV6--v6m8X2X0ot-gp9aHBFB8vZ45BpR16Pji2FNvb8jCWiZlF8KB6PSce_onMwNzUu_4VYLTw8A1xO_PVhDw9Z0RDmDKixBI3sf8F_Vwakfzs0jJ_QZ4lCl04g9s5UWige29iDy2_nImo-CkgvEjt')"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest py-1 px-2.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-[10px] font-bold text-primary">Eco-Partner</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</button>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<div class="flex items-center gap-1">
+<h3 class="font-title-md text-title-md text-primary font-bold">Green Bowl</h3>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-body-md text-xs text-on-surface-variant">$$ • Healthy • 20-30 min</p>
+<div class="flex items-center gap-1 mt-1 bg-surface-variant/50 w-fit px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-[10px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-[10px] text-secondary">100% Compostable Packaging</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[280px] w-[280px] bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(17,108,74,0.04)] snap-start hover:shadow-[0px_10px_30px_rgba(17,108,74,0.08)] transition-shadow duration-300">
+<div class="relative h-[160px] w-full">
+<div class="bg-cover bg-center w-full h-full" data-alt="A rustic, artisan pizza topped with fresh arugula, bubbling mozzarella, and rich tomato sauce, sitting on a dark wooden board under warm, inviting overhead lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_rmze5sFOhCsLHXjUFQAbvU7wWqOOR2d0Rq_Jzf_Co7sTkueE5WQ-vk4xy7Qa599GFiiQ8XkTVQQ-QhjK3UjyAa7c3u-t_jWWZJE9cvsjtn11U2U4Ravmn1qF1Hsl7gpzyB_95fgn7ZY9uHMfhhqxIOab08KqZUS1_gP_MwRiZWiF-Vdhsv8bVDnCDTBg9n66cnI84FzCyMjNYnAiUbSrQq2f2kYRbEnCQxDLyiEYiyCztmU71jM8')"></div>
+<div class="absolute top-3 left-3 bg-surface-container-lowest py-1 px-2.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-[10px] font-bold text-primary">Eco-Partner</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center hover:bg-surface-container-lowest transition-colors">
+<span class="material-symbols-outlined text-primary text-sm">favorite</span>
+</button>
+</div>
+<div class="p-4 flex flex-col gap-2">
+<div class="flex items-center gap-1">
+<h3 class="font-title-md text-title-md text-primary font-bold">Pura Pizza</h3>
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-body-md text-xs text-on-surface-variant">$$ • Italian • 25-35 min</p>
+<div class="flex items-center gap-1 mt-1 bg-surface-variant/50 w-fit px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-[10px]" style="font-variation-settings: 'FILL' 1;">recycling</span>
+<span class="font-label-sm text-[10px] text-secondary">Recycled Packaging</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Impact Banner -->
+<section class="px-container-margin">
+<div class="bg-primary-fixed rounded-2xl p-6 relative overflow-hidden flex items-center gap-4">
+<div class="relative z-10 bg-surface-container-lowest w-16 h-16 rounded-full flex flex-shrink-0 items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">delete</span>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-secondary text-xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="relative z-10 flex-1">
+<h3 class="font-title-md text-title-md text-primary font-bold mb-1">Let's reduce waste together</h3>
+<p class="font-body-md text-xs text-on-primary-fixed-variant mb-3">Choose restaurants with eco-friendly packaging and earn Green Points.</p>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm px-4 py-2 rounded-full hover:bg-on-primary-fixed-variant transition-colors">Learn more</button>
+</div>
+<!-- Abstract Globe graphic -->
+<div class="absolute -right-8 -bottom-8 w-40 h-40 opacity-20 pointer-events-none rounded-full bg-secondary-fixed-dim blur-xl"></div>
+<span class="material-symbols-outlined absolute -right-4 top-1/2 -translate-y-1/2 text-8xl text-secondary opacity-10 pointer-events-none" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+</section>
+<!-- Impact Stats -->
+<section class="px-container-margin">
+<div class="flex justify-between items-center mb-stack-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Every order makes an impact</h2>
+<button class="flex items-center text-secondary hover:text-primary transition-colors font-label-sm text-label-sm">
+                    View impact <span class="material-symbols-outlined text-sm ml-1">chevron_right</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-[0px_4px_20px_rgba(17,108,74,0.04)] flex justify-between divide-x divide-outline-variant/30">
+<div class="flex gap-2 items-center flex-1 px-2">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold">1,230</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant leading-tight">kg CO₂ saved</span>
+</div>
+</div>
+<div class="flex gap-2 items-center flex-1 px-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-lg">recycling</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold">3,456</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant leading-tight">pieces of waste avoided</span>
+</div>
+</div>
+<div class="flex gap-2 items-center flex-1 px-2 justify-end">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-lg" style="font-variation-settings: 'FILL' 1;">park</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold">56</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant leading-tight">trees planted</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pt-2 pb-6 border-t border-outline-variant/10 bg-surface-container-lowest shadow-[0px_-4px_20px_rgba(17,108,74,0.04)] rounded-t-xl md:hidden">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold scale-90 transition-transform duration-200 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Browse -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">explore</span>
+<span class="font-label-sm text-label-sm">Browse</span>
+</a>
+<!-- Orders -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">shopping_bag</span>
+<span class="font-label-sm text-label-sm">Orders</span>
+</a>
+<!-- Impact -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">eco</span>
+<span class="font-label-sm text-label-sm">Impact</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-110 transition-transform">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>
