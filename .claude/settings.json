@@ -13,7 +13,13 @@
       "Bash(xargs sed -i '' 's/GreenLoop/RIU/g')",
       "Bash(sed -i '' -e 's/GreenLoop/RIU/g' -e 's/\\\\bRUI\\\\b/RIU/g' README.md ARCHITECTURE.md DESIGN.md ROADMAP.md PITCH.md RESUMEN.md docs/*.md && echo \"--- restantes GreenLoop/RUI ---\" && grep -rn \"GreenLoop\\\\|\\\\bRUI\\\\b\" *.md docs/*.md | head; echo \"--- rachas restantes ---\" && grep -rn \"racha\\\\|Racha\\\\|streak\\\\|Streak\" *.md docs/*.md)",
       "Bash(sed -i '' -e 's/GreenLoop/RIU/g' -e 's/\\\\bRUI\\\\b/RIU/g' RESUMEN.md docs/*.md; echo \"=== restantes ===\"; grep -rn \"GreenLoop\\\\|\\\\bRUI\\\\b\" *.md docs/*.md | head)",
-      "Bash(awk -F': ' '$2>0.30')"
+      "Bash(awk -F': ' '$2>0.30')",
+      "Bash(mkdir -p shots)",
+      "Bash(node capture.mjs 390 844 shots/home.png \"http://localhost:5178/\")",
+      "Bash(node capture.mjs 390 844 shots/lc.png \"http://localhost:5178/restaurante/little-caesars\" --scroll=430)",
+      "Bash(node capture.mjs 390 844 shots/dev.png \"http://localhost:5178/devoluciones\")",
+      "Bash(node capture.mjs 390 844 shots/rank.png \"http://localhost:5178/ranking\")",
+      "Bash(node capture.mjs 390 844 shots/scan.png \"http://localhost:5178/devoluciones\" --js='\\(\\(\\)=>{const b=[...document.querySelectorAll\\(\"button\"\\)].find\\(b=>b.textContent.includes\\(\"Escanear QR\"\\)\\); b.click\\(\\); setTimeout\\(\\(\\)=>{const s=[...document.querySelectorAll\\(\"button\"\\)].find\\(x=>x.textContent.includes\\(\"Escanear código QR\"\\)\\); if\\(s\\)s.click\\(\\);}, 500\\); return \"ok\";}\\)\\(\\)' --wait=3200)"
     ],
     "additionalDirectories": [
       "/Users/lagosmauro/Desktop/equipo-4-haCAIthon-2026/docs"
