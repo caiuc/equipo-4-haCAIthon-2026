@@ -1,6 +1,6 @@
-# Complete Repository File Index · GreenLoop
+# Complete Repository File Index · RIU
 
-This file serves as a comprehensive registry of all files and directories in the **GreenLoop (Earthbound Delivery)** workspace. It explains the structure, purpose, and guidelines for every file so that AI agents and human developers can navigate the codebase instantly.
+This file serves as a comprehensive registry of all files and directories in the **RIU (Earthbound Delivery)** workspace. It explains the structure, purpose, and guidelines for every file so that AI agents and human developers can navigate the codebase instantly.
 
 ---
 
@@ -13,7 +13,7 @@ This file serves as a comprehensive registry of all files and directories in the
 ├── DESIGN.md                           # Earthbound Delivery Design System tokens & guidelines
 ├── ARCHITECTURE.md                     # Technical architecture & layout guide for Claude Code / AI Agents
 ├── LICENSE                             # MIT Open Source License file
-├── stitch_greenloop_sustainable_delivery.zip # Original compressed export from Google Stitch
+├── stitch_riu_sustainable_delivery.zip # Original compressed export from Google Stitch
 │
 ├── docs/                               # Developer & AI Agent Context Documentation
 │   ├── FILE_INDEX.md                   # Complete file map & descriptions (This file)
@@ -50,7 +50,7 @@ This file serves as a comprehensive registry of all files and directories in the
 | [DESIGN.md](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/DESIGN.md) | Color palette tokens, typography scales, layout spacing, elevation, and rounded corner rules. | Read before building any UI component or writing CSS/Tailwind styles. |
 | [ARCHITECTURE.md](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/ARCHITECTURE.md) | Architectural blueprints, component hierarchy, data models, and strict AI coding rules. | Read before designing state managers, APIs, or data schemas. |
 | [LICENSE](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/LICENSE) | MIT License covering all original code produced for HaCAiThon 2026. | Keep intact. |
-| `stitch_greenloop_sustainable_delivery.zip` | Untouched ZIP file containing the original output exported from Google Stitch. | Preserved for fallback reference. |
+| `stitch_riu_sustainable_delivery.zip` | Untouched ZIP file containing the original output exported from Google Stitch. | Preserved for fallback reference. |
 
 ---
 
@@ -73,5 +73,5 @@ This file serves as a comprehensive registry of all files and directories in the
 | [templates/home_sustainable_feed/code.html](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/templates/home_sustainable_feed/code.html) | Screen 1: Home Feed UI template with search, categories, and eco-partner cards. | Inspect HTML structure to extract React / Vue / Flutter components. |
 | [templates/restaurant_green_bowl/code.html](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/templates/restaurant_green_bowl/code.html) | Screen 2: Merchant Detail UI template with returnable container toggle. | Inspect HTML structure for meal customization modal. |
 | [templates/rewards_returns/code.html](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/templates/rewards_returns/code.html) | Screen 3: Rewards & Smart Drop-off Hub UI template with QR scan & map. | Inspect HTML structure for return bin list and coupon cards. |
-| [templates/impact_leaderboard/code.html](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/templates/impact_leaderboard/code.html) | Screen 4: Duolingo-style social CO2 leaderboard UI template. | Inspect HTML structure for friend rankings and streak UI. |
+| [templates/impact_leaderboard/code.html](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/templates/impact_leaderboard/code.html) | Screen 4: Duolingo-style social CO2 leaderboard UI template. | Inspect HTML structure for friend rankings. |
 | `templates/*/screen.png` | Screenshot PNG references for each screen. | View for visual layout confirmation. |

@@ -14,7 +14,7 @@ import { MerchantCard } from '../components/MerchantCard'
 /** Perfil: identidad, impacto acumulado, favoritos y ajustes de la demo. */
 export function Profile() {
   const navigate = useNavigate()
-  const { flora, co2SavedKg, streakDays, returnedCount, containers, favorites } = useApp()
+  const { flora, co2SavedKg, returnedCount, containers, favorites } = useApp()
 
   const favoriteMerchants = merchants.filter((m) => favorites.includes(m.id))
   const tierProgress = (flora / (flora + currentUser.floraToNextTier)) * 100
@@ -85,9 +85,9 @@ export function Profile() {
         />
         <StatCard icon="recycling" value={returnedCount} label="Envases devueltos" />
         <StatCard
-          icon="local_fire_department"
-          value={streakDays}
-          label="Días de racha"
+          icon="workspace_premium"
+          value={currentUser.badges.filter((b) => b.unlocked).length}
+          label="Insignias obtenidas"
         />
       </Stagger>
 
@@ -169,7 +169,7 @@ export function Profile() {
             { icon: 'notifications', label: 'Recordatorios de devolución', value: 'Activos' },
             { icon: 'credit_card', label: 'Medios de pago', value: '1 tarjeta' },
             { icon: 'group', label: 'Invitar amigos', value: '+100 Flora' },
-            { icon: 'help', label: 'Cómo funciona GreenLoop', value: '' },
+            { icon: 'help', label: 'Cómo funciona RIU', value: '' },
           ].map((row) => (
             <li key={row.label}>
               <button
@@ -191,7 +191,9 @@ export function Profile() {
       </Reveal>
 
       <p className="text-center font-label text-[11px] text-on-surface-variant">
-        GreenLoop · Prueba de concepto HaCAiThon 2026. Todos los datos son ficticios.
+        RIU · Prueba de concepto HaCAiThon 2026. Todos los datos son ficticios. Las marcas
+        reales se muestran solo como referencia visual; sus métricas de sustentabilidad
+        son inventadas y no representan datos reales de esas empresas.
       </p>
     </div>
   )

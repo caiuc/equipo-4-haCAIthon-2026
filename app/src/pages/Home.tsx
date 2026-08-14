@@ -13,7 +13,7 @@ import { MerchantCard } from '../components/MerchantCard'
 /** Pantalla 1 · Feed sustentable de inicio. */
 export function Home() {
   const navigate = useNavigate()
-  const { co2SavedKg, streakDays, flora, containers } = useApp()
+  const { co2SavedKg, returnedCount, flora, containers } = useApp()
 
   const recommended = merchants.filter((m) => isEcoPartner(m.sustainableSalesRatio))
 
@@ -169,7 +169,7 @@ export function Home() {
               </div>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <MiniStat icon="local_fire_department" value={`${streakDays} días`} label="Racha" />
+              <MiniStat icon="recycling" value={String(returnedCount)} label="Devueltos" />
               <MiniStat icon="eco" value={formatFlora(flora)} label="Flora" />
               <MiniStat
                 icon="package_2"

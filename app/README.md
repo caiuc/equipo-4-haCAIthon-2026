@@ -1,6 +1,6 @@
-# GreenLoop · Frontend
+# RIU · Frontend
 
-Prueba de concepto de la app **GreenLoop (Earthbound Delivery)** en React + Vite.
+Prueba de concepto de la app **RIU (Earthbound Delivery)** en React + Vite.
 Toda la información es **ficticia**: no hay backend, cobros ni cámara real.
 
 ## Puesta en marcha

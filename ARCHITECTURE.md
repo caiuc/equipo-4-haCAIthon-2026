@@ -1,16 +1,16 @@
-# Architecture & Technical Overview · GreenLoop / Earthbound Delivery
+# Architecture & Technical Overview · RIU / Earthbound Delivery
 
-This document provides a comprehensive technical architecture guide for **Claude Code** and other AI coding agents working on the **GreenLoop (Earthbound Delivery)** codebase.
+This document provides a comprehensive technical architecture guide for **Claude Code** and other AI coding agents working on the **RIU (Earthbound Delivery)** codebase.
 
 ---
 
 ## 1. System Vision & Core Pillars
 
-GreenLoop is a native mobile-first food & grocery delivery platform designed around environmental sustainability, returnable packaging economics, and Duolingo-inspired social gamification.
+RIU is a native mobile-first food & grocery delivery platform designed around environmental sustainability, returnable packaging economics, and Duolingo-inspired social gamification.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    GreenLoop Sustainable Delivery                       │
+│                    RIU Sustainable Delivery                       │
 └─────────────────────────────────────────────────────────────────────────┘
                                    │
        ┌───────────────────────────┼───────────────────────────┐
@@ -30,8 +30,8 @@ GreenLoop is a native mobile-first food & grocery delivery platform designed aro
 ```
 
 ### Core Architecture Pillars:
-1. **Returnable Packaging Economy:** Users select reusable containers during checkout for a discounted meal price. Returning packaging (in-store, campus smart drop-offs, or via next delivery rider) grants coupons and Green Points.
-2. **Duolingo-Style Social Gamification:** Quantified carbon footprint engine tracking $kg\text{ CO}_2$ saved. Users compete with friends on dynamic leaderboards, maintain eco-streaks, and earn badges.
+1. **Returnable Packaging Economy:** Users select reusable containers during checkout for a discounted meal price. Returning packaging (in-store, campus smart drop-offs, or via next delivery rider) grants coupons and **Flora**, the in-app currency.
+2. **Social CO2 Gamification:** Quantified carbon footprint engine tracking $kg\text{ CO}_2$ saved. Users compete with friends on dynamic leaderboards and earn badges for returned-container milestones. *(Daily streaks were evaluated and dropped: they reward logging in, not returning packaging.)*
 3. **Sustainable Merchant Incentives:** Restaurants hitting sustainability targets (e.g., >30% sustainable sales) receive marketing badges and priority placement on the home feed.
 4. **Human-Centric Design System:** Grounded, natural palette (Forest Green, Leaf Green, Warm Cream) with rounded containers and intuitive UX familiar to DoorDash / UberEats users.
 
@@ -46,7 +46,7 @@ GreenLoop is a native mobile-first food & grocery delivery platform designed aro
 ├── DESIGN.md                           # Master Design System (Tokens, Palette, Typography)
 ├── ARCHITECTURE.md                     # Technical & Architectural Guide (This file)
 ├── LICENSE                             # MIT Open-Source License
-├── stitch_greenloop_sustainable_delivery.zip # Original compressed Stitch export
+├── stitch_riu_sustainable_delivery.zip # Original compressed Stitch export
 │
 ├── docs/                               # Developer & AI Agent Context Documentation
 │   ├── FILE_INDEX.md                   # Directory map & complete file descriptions
@@ -98,7 +98,6 @@ interface UserProfile {
   avatarUrl: string;
   greenPoints: number;
   totalCo2SavedKg: number;
-  currentStreakDays: number;
   containersInCirculation: number;
   returnedContainersCount: number;
   friends: string[]; // User IDs
@@ -167,7 +166,7 @@ interface Merchant {
 
 ```
 App Root
-├── TopAppBar (Location Selector + Green Points Balance)
+├── TopAppBar (Location Selector + Flora Balance)
 ├── Navigation Router / Bottom Tab Bar
 │   ├── [Tab 1] HomeSustainableFeed
 │   │   ├── HeroBanner ("Good food. Better planet.")
@@ -189,7 +188,7 @@ App Root
 │   │   └── RedeemedCouponsCarousel
 │   │
 │   └── [Tab 4] ImpactLeaderboard
-│       ├── UserStreakHeader (Duolingo style)
+│       ├── ImpactSummaryHeader (CO2 saved + containers returned + rank)
 │       ├── FriendRankingsTable (CO2 saved leaderboards)
 │       ├── AchievementBadgesGrid
 │       └── MerchantSustainabilityLeaderboard

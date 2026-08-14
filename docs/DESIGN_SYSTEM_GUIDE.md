@@ -1,4 +1,4 @@
-# Design System Technical Guide · Earthbound / GreenLoop
+# Design System Technical Guide · Earthbound / RIU
 
 This guide details how the design tokens from [`DESIGN.md`](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/DESIGN.md) are configured in code and how developers/AI agents should consume them when building app components.
 

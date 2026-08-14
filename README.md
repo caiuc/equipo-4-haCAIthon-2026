@@ -1,11 +1,13 @@
-# GreenLoop · Earthbound Sustainable Delivery
+# RIU · Delivery Sustentable
 
 <p align="center">
-  <img src="./templates/global_overview/overview.png" alt="GreenLoop Prototype Overview" width="100%" style="border-radius: 16px;" />
+  <img src="./templates/global_overview/overview.png" alt="Vista general del prototipo RIU" width="100%" style="border-radius: 16px;" />
 </p>
 
 <p align="center">
-  <b>A native mobile door-dash style delivery app focused on sustainability, returnable packaging economics, and Duolingo-inspired social CO2 gamification.</b>
+  <b>Una app de delivery donde el envase no se regala: se presta.<br/>
+  Elegir envase retornable te sale más barato, devolverlo te da recompensas,<br/>
+  y al local le conviene ofrecerlo.</b>
 </p>
 
 <p align="center">
@@ -16,90 +18,198 @@
 
 ---
 
-## 🍃 Core Product Concept
+## 🚀 Ver la demo
 
-**GreenLoop (Earthbound Delivery)** transforms food and grocery delivery by integrating sustainability into every interaction. Download the app and instantly feel the environmental focus through a warm, organic design language, intuitive DoorDash-familiar UX, and tangible rewards for circular packaging choices.
+```bash
+cd app
+npm install
+npm run dev      # http://localhost:5173
+```
 
-### Key Features & Innovations
+La demo es **navegable y funcional**, no una maqueta: agregar platos recalcula el
+descuento, confirmar un pedido acredita Flora y genera un envase, y escanear su QR lo
+devuelve sumando recompensa y CO₂ evitado.
 
-1. **Returnable Packaging & Direct Discounts:**
-   - Users select reusable containers during meal customization to unlock discounted pricing (e.g. $1.50 off per meal).
-   - Packaging returns earn **Green Points** and store coupons.
-
-2. **Smart Drop-Off Logistics Network:**
-   - Flexible 3-way container return ecosystem:
-     - 🎓 **Campus Smart Hubs:** Drop off at dedicated smart collection bins across university campuses.
-     - 🏪 **In-Store Return:** Return packaging directly to participating restaurants.
-     - 🛵 **Next Delivery Pick-up:** Hand back returnable containers to your delivery rider on your next order.
-
-3. **Duolingo-Style Social CO2 Competition:**
-   - Dynamic leaderboard quantifying $kg\text{ CO}_2$ prevented from entering the atmosphere.
-   - Compete against friends, maintain eco-streaks (🔥), earn badges, and celebrate sustainability milestones.
-
-4. **Merchant Sustainability Goal Boost (>30% Criteria):**
-   - Participating merchants who achieve >30% sustainable packaging sales earn official **"Eco-Partner"** marketing badges.
-   - High-performing sustainable merchants receive algorithm search boosts and top placement in the feed.
+**Recorrido sugerido:** Inicio → Green Bowl → activar envase retornable → pagar →
+Devoluciones → escanear QR → Ranking.
 
 ---
 
-## 📁 Repository Directory Structure
+## 🌱 El problema
+
+Pedir comida por app es uno de los gestos más cotidianos de la vida urbana, y también uno
+de los más desechables. El problema tiene **tres capas que se refuerzan entre sí**:
+
+1. **El envase es invisible para quien decide.** El usuario elige por sabor, precio y
+   tiempo de entrega; la basura que va a generar no aparece en ninguna parte de la
+   pantalla al momento de comprar.
+2. **Elegir bien cuesta más.** Cuando existe alternativa sustentable, suele ser más cara o
+   menos cómoda. La conducta responsable se castiga en vez de premiarse.
+3. **Al comercio no le sirve cambiar.** Migrar a envases reutilizables implica costo y
+   logística sin retorno comercial visible: nadie elige un local *porque* usa envase
+   retornable, porque el usuario nunca se entera.
+
+El resultado es un círculo donde todos los actores prefieren, racionalmente, la opción más
+contaminante. Atacar solo la capa 1 —mostrar la huella y confiar en la buena voluntad— no
+mueve la aguja.
+
+---
+
+## ♻️ La solución
+
+RIU interviene las tres capas a la vez, con cuatro piezas que se encadenan.
+
+### 1. Envase retornable con descuento inmediato
+
+Al pedir, el usuario elige entre envase compostable estándar o retornable. La segunda
+opción **descuenta pesos del total en ese mismo instante**. Elegir bien deja de ser un
+sacrificio moral y pasa a ser la decisión conveniente. *(Capa 2.)*
+
+### 2. Red de devolución de tres vías
+
+Devolver tiene que ser más fácil que botar:
+
+- 🎓 **Puntos inteligentes en campus** — con capacidad y horario en tiempo real.
+- 🏪 **Devolución en tienda** — en cualquier local participante.
+- 🛵 **Entrega al repartidor** — en el siguiente pedido, en la puerta de la casa.
+
+Cada envase lleva un **código QR único**: escanearlo acredita la recompensa al instante y
+cierra la trazabilidad del ciclo.
+
+### 3. Competencia social de CO₂
+
+Cada plato muestra su huella y cada devolución suma al contador personal. Ese número
+alimenta un ranking entre amigos, con insignias por hitos de envases devueltos. *(Capa 1.)*
+
+> **Sin rachas diarias.** Se evaluaron y se descartaron: premian abrir la app, no devolver
+> envases. El ranking mide lo único que importa —CO₂ evitado y envases devueltos— para que
+> la métrica visible sea la que genera impacto real.
+
+### 4. Meta del 30% para comercios
+
+Los locales que superan el **30% de sus ventas con envase sustentable** obtienen la
+insignia **Eco-Partner**, prioridad en el feed y mejor posición en la búsqueda. La
+sustentabilidad se traduce en visibilidad comercial. *(Capa 3.)*
+
+### El circuito cerrado
+
+```
+   ①  El descuento atrae al usuario a elegir retornable
+        ↓
+   ②  La recompensa en Flora lo hace devolver el envase
+        ↓
+   ③  La devolución genera datos de trazabilidad
+        ↓
+   ④  Los datos premian al local con visibilidad
+        ↓
+   ⑤  El local pone más envases en circulación
+        ↓
+       (vuelve a ①)
+```
+
+Ninguna pieza es nueva por separado. Lo distintivo es que **cada vuelta hace la siguiente
+más fácil**, sin depender de que nadie mantenga alta la motivación.
+
+---
+
+## ✨ Qué incluye la app
+
+**Ocho pantallas** navegables:
+
+| Pantalla | Qué hace |
+| :--- | :--- |
+| **Inicio** | Impacto personal, categorías y Eco-Partners destacados |
+| **Explorar** | Búsqueda y filtros, ordenados por sustentabilidad |
+| **Comercio** | Huella de CO₂ por plato, selector de envase y meta del 30% |
+| **Devoluciones** | Envases activos, escáner QR, mapa de puntos y canjes |
+| **Ranking** | CO₂ entre amigos, insignias y ranking de comercios |
+| **Perfil** | Estadísticas, insignias y favoritos |
+| **Checkout** | Descuento sustentable desglosado y pago con Flora |
+| **Confirmación** | Celebración con Flora y CO₂ ganados |
+
+Más tres capas globales: **carrito lateral**, **escáner QR simulado** y **notificaciones
+flotantes**.
+
+**Moneda de la app: Flora.** Se gana devolviendo envases e invitando amigos; se canjea por
+descuentos, café gratis o plantar un árbol nativo. También sirve como medio de pago
+parcial (1 Flora = $10 CLP).
+
+**Comercios de la demo:** 6 locales sustentables ficticios (Green Bowl, Café Ciclo, Raíz
+Verde, Pura Pizza, Cosecha Local, Mar Adentro) y 6 cadenas reales adheridas al programa
+(**Little Caesars**, Starbucks, Emporio La Rosa, Juan Maestro, Subway, Doggis).
+
+> ⚠️ **Todos los datos son ficticios.** Las marcas reales se usan solo como referencia
+> visual para que la demo se sienta familiar; sus menús, precios y **especialmente sus
+> porcentajes de ventas sustentables son inventados** y no representan datos reales de
+> esas empresas. No hay backend, cobros ni acceso a la cámara.
+
+---
+
+## 🛠️ Stack
+
+React 19 · TypeScript · Vite · Tailwind CSS v4 · Motion · React Router
+
+El sistema de diseño completo (paleta, tipografías, grilla, sombras) sale de los tokens de
+[`DESIGN.md`](./DESIGN.md), cargados en `@theme`. Responsivo verificado sin desbordamiento
+horizontal en 360, 390, 768, 1024 y 1440 px, con navegación inferior en móvil y barra
+superior en escritorio.
+
+---
+
+## 📁 Estructura del repositorio
 
 ```
 .
-├── README.md                           # Master project guide & HaCAiThon 2026 official bases
-├── ROADMAP.md                          # Production implementation roadmap & milestone checklist
-├── DESIGN.md                           # Earthbound Delivery Design System tokens & guidelines
-├── ARCHITECTURE.md                     # Technical architecture & layout guide for Claude Code / AI Agents
-├── LICENSE                             # MIT Open-Source License
-├── stitch_greenloop_sustainable_delivery.zip # Original compressed Stitch template export
+├── README.md                    Este documento
+├── RESUMEN.md                   Resumen completo: problema, contenido y todas las features
+├── ARCHITECTURE.md              Arquitectura, esquemas de datos y reglas para agentes IA
+├── DESIGN.md                    Sistema de diseño: tokens, paleta, tipografía, espaciado
+├── ROADMAP.md                   Hoja de ruta en 6 fases hacia producción
+├── LICENSE                      Licencia MIT
 │
-├── docs/                               # Developer & AI Agent Context Documentation
-│   ├── FILE_INDEX.md                   # Directory map & complete file descriptions
-│   ├── SCREENS_OVERVIEW.md             # Breakdown of the 4 prototype UI screens & user flows
-│   └── DESIGN_SYSTEM_GUIDE.md          # Guide on consuming DESIGN.md color tokens & Tailwind config
+├── docs/
+│   ├── FILE_INDEX.md            Mapa completo de archivos
+│   ├── SCREENS_OVERVIEW.md      Desglose de las 4 pantallas del prototipo original
+│   └── DESIGN_SYSTEM_GUIDE.md   Cómo consumir los tokens de DESIGN.md en código
 │
-└── templates/                          # Untouched Google Stitch HTML/Tailwind Prototype Screens
-    ├── index.html                      # Interactive Navigation Hub to preview screens in browser
-    ├── home_sustainable_feed/          # Screen 1: Home Feed & Search
-    │   ├── code.html                   # HTML / Tailwind template (Untouched)
-    │   └── screen.png                  # UI Screenshot reference
-    ├── restaurant_green_bowl/          # Screen 2: Sustainable Merchant Detail (Green Bowl)
-    │   ├── code.html                   # HTML / Tailwind template (Untouched)
-    │   └── screen.png                  # UI Screenshot reference
-    ├── rewards_returns/                # Screen 3: Smart Drop-off & Packaging Return Hub
-    │   ├── code.html                   # HTML / Tailwind template (Untouched)
-    │   └── screen.png                  # UI Screenshot reference
-    ├── impact_leaderboard/             # Screen 4: Duolingo-Style Social CO2 Leaderboard
-    │   ├── code.html                   # HTML / Tailwind template (Untouched)
-    │   └── screen.png                  # UI Screenshot reference
-    └── global_overview/                # Global Design Overview
-        └── overview.png                # Combined screen preview image
+├── templates/                   Prototipos originales de Google Stitch (congelados)
+│
+└── app/                         ★ Aplicación web
+    ├── README.md                Documentación técnica del frontend
+    └── src/
+        ├── data/mock.ts         Todos los datos ficticios
+        ├── store/AppStore.tsx   Estado global (carrito, Flora, envases)
+        ├── components/          UI, layout, carrito, escáner y avisos
+        └── pages/               Las 8 pantallas
 ```
+
+📖 **Para el detalle completo de todas las funcionalidades, ver
+[`RESUMEN.md`](./RESUMEN.md).**
 
 ---
 
-## 🚀 Quickstart & Screen Navigator
+## 🧭 Qué sigue
 
-To preview the live Google Stitch interactive prototype screens in your browser:
+- **Backend y trazabilidad real** de cada envase por QR, con estados de ciclo de vida.
+- **Motor de CO₂** validado con factores de emisión reconocidos, en vez de los
+  coeficientes ilustrativos de la demo.
+- **Piloto en un campus** con locales aliados, para medir la tasa real de devolución — el
+  número que decide si el modelo funciona.
+- **Portal para comercios** con analítica de su avance hacia la meta del 30%.
 
-```bash
-# Option A: Start a simple Python web server
-python3 -m http.server 8000
-
-# Option B: Use Node npx serve
-npx serve .
-```
-
-Open **`http://localhost:8000/templates/index.html`** to launch the interactive prototype viewer.
+Detalle por fases en [`ROADMAP.md`](./ROADMAP.md).
 
 ---
 
-## 🤖 Guide for AI Coding Agents (Claude Code / AGY)
+## 🤖 Guía para agentes de IA
 
-- **Source Code Protection:** Do **NOT** edit the template files in `templates/*/code.html` directly. They are preserved as golden design references.
-- **System Specs:** Read [`ARCHITECTURE.md`](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/ARCHITECTURE.md) for data schemas, component tree, and architectural rules.
-- **Design Tokens:** Refer to [`DESIGN.md`](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/DESIGN.md) and [`docs/DESIGN_SYSTEM_GUIDE.md`](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/docs/DESIGN_SYSTEM_GUIDE.md) when building new UI components.
-- **File Lookup:** Consult [`docs/FILE_INDEX.md`](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/docs/FILE_INDEX.md) to locate any file in the workspace.
+- **Código protegido:** no editar `templates/*/code.html`. Son la referencia de diseño
+  original y están congelados a propósito.
+- **Tokens de diseño:** usar siempre [`DESIGN.md`](./DESIGN.md) y
+  [`docs/DESIGN_SYSTEM_GUIDE.md`](./docs/DESIGN_SYSTEM_GUIDE.md).
+- **Arquitectura:** [`ARCHITECTURE.md`](./ARCHITECTURE.md) tiene los esquemas de datos y la
+  jerarquía de componentes.
+- **Ubicar archivos:** [`docs/FILE_INDEX.md`](./docs/FILE_INDEX.md).
 
 ---
 
@@ -138,6 +248,6 @@ Hackathon presencial de 8 horas (12:00 a 20:00 hrs) para estudiantes de Ingenier
 
 ---
 
-## 📄 License
+## 📄 Licencia
 
-This project is licensed under the [MIT License](file:///home/nicoquinta/code/equipo-4-haCAIthon-2026/LICENSE).
+Este proyecto está bajo la [Licencia MIT](./LICENSE).

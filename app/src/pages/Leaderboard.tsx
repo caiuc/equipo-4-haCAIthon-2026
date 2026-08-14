@@ -20,12 +20,16 @@ const medals = ['#d4af37', '#b0b7bd', '#c08457']
 
 /** Pantalla 4 · Ranking social de CO₂ estilo Duolingo. */
 export function Leaderboard() {
-  const { co2SavedKg, streakDays, pushToast } = useApp()
+  const { co2SavedKg, returnedCount, pushToast } = useApp()
   const [scope, setScope] = useState<'amigos' | 'global'>('amigos')
 
   const raw = scope === 'amigos' ? friendsLeaderboard : globalLeaderboard
   const entries = [...raw]
-    .map((e) => (e.isCurrentUser ? { ...e, co2Kg: co2SavedKg, streakDays } : e))
+    .map((e) =>
+      e.isCurrentUser
+        ? { ...e, co2Kg: co2SavedKg, containersReturned: returnedCount }
+        : e,
+    )
     .sort((a, b) => b.co2Kg - a.co2Kg)
 
   const myIndex = entries.findIndex((e) => e.isCurrentUser)
@@ -40,37 +44,29 @@ export function Leaderboard() {
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 260, damping: 18 }}
-          className="relative flex h-20 w-20 items-center justify-center rounded-full bg-gold-container"
+          className="relative flex h-20 w-20 items-center justify-center rounded-full bg-secondary-container"
         >
-          <span className="absolute inset-0 animate-pulse-ring rounded-full bg-gold/40" />
-          <Icon name="local_fire_department" fill className="text-4xl text-gold" />
+          <span className="absolute inset-0 animate-pulse-ring rounded-full bg-secondary/30" />
+          <Icon name="emoji_events" fill className="text-4xl text-secondary" />
         </motion.div>
         <div>
           <h1 className="text-headline-mobile font-bold text-primary md:text-display-lg">
-            ¡Racha de {streakDays} días verdes!
+            Ranking de impacto
           </h1>
           <p className="mt-1 text-body-lg text-on-surface-variant">
-            Compara tu impacto en CO₂ con tu comunidad.
+            Compara el CO₂ que evitaste con el de tu comunidad.
           </p>
         </div>
 
-        {/* Días de la racha */}
-        <div className="flex gap-1.5">
-          {Array.from({ length: 7 }).map((_, i) => (
-            <motion.span
-              key={i}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1 + i * 0.06, type: 'spring', stiffness: 400 }}
-              className={`flex h-8 w-8 items-center justify-center rounded-full font-label text-[11px] font-bold ${
-                i < streakDays % 8 || streakDays >= 7
-                  ? 'bg-secondary text-on-secondary'
-                  : 'bg-surface-container text-on-surface-variant'
-              }`}
-            >
-              {['L', 'M', 'M', 'J', 'V', 'S', 'D'][i]}
-            </motion.span>
-          ))}
+        {/* Resumen del mes */}
+        <div className="flex flex-wrap justify-center gap-2">
+          <HeaderStat icon="cloud_off" value={`${formatKg(co2SavedKg)} kg`} label="CO₂ evitado" />
+          <HeaderStat icon="recycling" value={String(returnedCount)} label="Envases devueltos" />
+          <HeaderStat
+            icon="military_tech"
+            value={`#${myIndex + 1}`}
+            label={scope === 'amigos' ? 'Entre amigos' : 'Global'}
+          />
         </div>
 
         {/* Conmutador de alcance */}
@@ -125,9 +121,9 @@ export function Leaderboard() {
               Vas en el puesto #{myIndex + 1}
             </h2>
             <p className="mt-1 flex items-center gap-1 text-secondary">
-              <Icon name="local_fire_department" fill className="text-[16px]" />
+              <Icon name="recycling" fill className="text-[16px]" />
               <span className="font-label text-label-sm font-bold">
-                {streakDays} días de racha verde
+                {returnedCount} envases devueltos
               </span>
             </p>
           </div>
@@ -259,6 +255,29 @@ export function Leaderboard() {
   )
 }
 
+/** Indicador compacto del encabezado del ranking. */
+function HeaderStat({
+  icon,
+  value,
+  label,
+}: {
+  icon: string
+  value: string
+  label: string
+}) {
+  return (
+    <span className="flex items-center gap-2 rounded-full bg-surface-container-lowest px-3 py-2 shadow-ambient">
+      <Icon name={icon} fill className="text-[18px] text-secondary" />
+      <span className="flex flex-col items-start leading-none">
+        <span className="text-body-md font-bold text-primary">{value}</span>
+        <span className="mt-0.5 font-label text-[10px] text-on-surface-variant">
+          {label}
+        </span>
+      </span>
+    </span>
+  )
+}
+
 function RankRow({
   entry,
   rank,
@@ -318,8 +337,8 @@ function RankRow({
         </h3>
         <div className="mt-0.5 flex flex-wrap items-center gap-2">
           <span className="flex items-center gap-0.5 font-label text-[11px] text-on-surface-variant">
-            <Icon name="local_fire_department" fill className="text-[12px] text-gold" />
-            {entry.streakDays}
+            <Icon name="recycling" className="text-[12px] text-secondary" />
+            {entry.containersReturned}
           </span>
           {entry.badge && (
             <span className="rounded-sm bg-secondary-container px-2 py-0.5 font-label text-[10px] text-on-secondary-container">

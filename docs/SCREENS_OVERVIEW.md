@@ -1,6 +1,13 @@
-# Prototype Screens Overview · GreenLoop
+# Prototype Screens Overview · RIU
 
-This document provides a detailed breakdown of the 4 Google Stitch UI prototype screens for **GreenLoop (Earthbound Delivery)**.
+This document provides a detailed breakdown of the 4 Google Stitch UI prototype screens for **RIU (Earthbound Delivery)**.
+
+> [!NOTE]
+> This describes the **original Stitch prototype**, kept frozen as a design reference.
+> The shipped app in [`app/`](../app) evolved from it and differs in three ways:
+> "Green Points" are now **Flora**, prices are in Chilean pesos, and the **daily-streak
+> system was removed** — engagement is measured by containers returned instead.
+> See [`../RESUMEN.md`](../RESUMEN.md) for the current feature set.
 
 ---
 

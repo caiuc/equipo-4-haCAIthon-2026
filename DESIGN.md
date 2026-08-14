@@ -114,7 +114,7 @@ The palette is inspired by old-growth forests and garden herbs.
 - **Secondary (Leaf Green):** Used for "Eco-Partner" badges, success states, and progress indicators.
 - **Tertiary (Soft Sage):** Used for subtle backgrounds, secondary buttons, and decorative organic shapes.
 - **Neutral (Warm Cream):** The primary canvas color. It is warmer than pure white, reducing eye strain and feeling more "natural."
-- **Accent (Harvest Gold):** A specialized token for "Green Points" and gamification elements to provide a warm, rewarding contrast to the greens.
+- **Accent (Harvest Gold):** A specialized token for **Flora** and gamification elements to provide a warm, rewarding contrast to the greens.
 
 ## Typography
 We use **Plus Jakarta Sans** for its friendly, rounded terminals which mirror the organic shapes of the brand. It provides excellent legibility for food names and descriptions. For functional labels and utility text, **Inter** is used to provide a clean, systematic contrast that aids in quick scanning of data like delivery times and weights.

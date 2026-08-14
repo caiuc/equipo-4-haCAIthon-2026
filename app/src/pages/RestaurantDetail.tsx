@@ -156,6 +156,18 @@ export function RestaurantDetail() {
                     : `Le faltan ${formatPercent(0.3 - merchant.sustainableSalesRatio)} para obtener la insignia Eco-Partner.`}
                 </p>
               </div>
+
+              {/* Las marcas reales aparecen con datos inventados: hay que decirlo. */}
+              {merchant.isRealBrand && (
+                <p className="mt-stack-md flex items-start gap-2 rounded-md bg-surface-container p-3 font-label text-label-sm text-on-surface-variant">
+                  <Icon name="info" className="shrink-0 text-[16px] text-outline" />
+                  <span>
+                    Marca real usada solo como referencia visual en esta demo. El menú, los
+                    precios y las métricas de sustentabilidad son inventados y no
+                    representan datos reales de la empresa.
+                  </span>
+                </p>
+              )}
             </div>
           </Reveal>
 

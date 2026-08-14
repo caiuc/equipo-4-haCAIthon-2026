@@ -27,7 +27,6 @@ import type {
 interface State {
   flora: number
   co2SavedKg: number
-  streakDays: number
   lines: CartLine[]
   merchantId: string | null
   packaging: PackagingChoice
@@ -41,7 +40,6 @@ interface State {
 const initialState: State = {
   flora: currentUser.flora,
   co2SavedKg: currentUser.totalCo2SavedKg,
-  streakDays: currentUser.currentStreakDays,
   lines: [],
   merchantId: null,
   packaging: 'retornable',

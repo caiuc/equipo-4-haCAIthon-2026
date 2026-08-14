@@ -48,7 +48,7 @@ export function TopAppBar() {
           </motion.span>
           <span className="flex flex-col leading-none">
             <span className="text-title-md font-extrabold tracking-tight text-primary">
-              GreenLoop
+              RIU
             </span>
             <span className="font-label text-[10px] text-on-surface-variant">
               Buena comida. Mejor planeta.

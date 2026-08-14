@@ -1,6 +1,6 @@
-# Project Implementation Roadmap · GreenLoop / Earthbound Delivery
+# Project Implementation Roadmap · RIU / Earthbound Delivery
 
-This roadmap provides a structured step-by-step path to transition the **GreenLoop** Google Stitch design prototype into a production-ready mobile application (React Native / Expo / Flutter / Web).
+This roadmap provides a structured step-by-step path to transition the **RIU** Google Stitch design prototype into a production-ready mobile application (React Native / Expo / Flutter / Web).
 
 ---
 
@@ -28,7 +28,7 @@ Setup       Checkout    Off Logistics Gamify    Goals       Demo
 
 - [ ] **1.3 Base Navigation Setup**
   - [ ] Implement Bottom Tab Bar Navigation (Feed, Returns, Leaderboard, Profile).
-  - [ ] Implement TopAppBar component with Location selector & Green Points balance.
+  - [ ] Implement TopAppBar component with Location selector & Flora balance.
 
 ---
 
@@ -60,8 +60,8 @@ Setup       Checkout    Off Logistics Gamify    Goals       Demo
   - [ ] Implement GPS-based site locator for Campus Smart Bins, Store Return Points, and Next Delivery Pickups.
   - [ ] Display site availability, operating hours, and distance.
 
-- [ ] **3.3 Green Points & Reward Crediting**
-  - [ ] Trigger instant Green Points credit upon verified QR return scan.
+- [ ] **3.3 Flora & Reward Crediting**
+  - [ ] Trigger instant Flora credit upon verified QR return scan.
   - [ ] Generate redeemable coupon codes for partner stores.
 
 ---
@@ -70,11 +70,11 @@ Setup       Checkout    Off Logistics Gamify    Goals       Demo
 
 - [ ] **4.1 Quantified Carbon Footprint Engine**
   - [ ] Implement CO2 savings calculation algorithm based on packaging choice & distance.
-  - [ ] Track user streak counter (e.g., 5 orders in returnable containers in a row).
+  - [ ] Track cumulative containers returned per user as the core engagement metric.
 
 - [ ] **4.2 Friend Leaderboard (`templates/impact_leaderboard/code.html`)**
   - [ ] Build social leaderboard showing friend ranks by $kg\text{ CO}_2$ saved.
-  - [ ] Implement Duolingo-style celebratory animations on rank up or streak extension.
+  - [ ] Implement celebratory animations on rank up and on verified container returns.
 
 - [ ] **4.3 Achievement & Badge System**
   - [ ] Unlockable eco-badges ("Zero-Waste Novice", "Campus Eco Hero", "CO2 Saver 10kg").

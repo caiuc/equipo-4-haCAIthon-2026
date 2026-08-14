@@ -9,7 +9,14 @@
       "Bash(python3 -)",
       "Bash(node capture.mjs 390 844 m-perfil.png \"http://localhost:5177/perfil\")",
       "Bash(pkill -f \"vite.*5177\")",
-      "Bash(pkill -f \"cdp-.*greenloop\")"
+      "Bash(pkill -f \"cdp-.*greenloop\")",
+      "Bash(xargs sed -i '' 's/GreenLoop/RIU/g')",
+      "Bash(sed -i '' -e 's/GreenLoop/RIU/g' -e 's/\\\\bRUI\\\\b/RIU/g' README.md ARCHITECTURE.md DESIGN.md ROADMAP.md PITCH.md RESUMEN.md docs/*.md && echo \"--- restantes GreenLoop/RUI ---\" && grep -rn \"GreenLoop\\\\|\\\\bRUI\\\\b\" *.md docs/*.md | head; echo \"--- rachas restantes ---\" && grep -rn \"racha\\\\|Racha\\\\|streak\\\\|Streak\" *.md docs/*.md)",
+      "Bash(sed -i '' -e 's/GreenLoop/RIU/g' -e 's/\\\\bRUI\\\\b/RIU/g' RESUMEN.md docs/*.md; echo \"=== restantes ===\"; grep -rn \"GreenLoop\\\\|\\\\bRUI\\\\b\" *.md docs/*.md | head)",
+      "Bash(awk -F': ' '$2>0.30')"
+    ],
+    "additionalDirectories": [
+      "/Users/lagosmauro/Desktop/equipo-4-haCAIthon-2026/docs"
     ]
   }
 }

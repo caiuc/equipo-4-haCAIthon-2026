@@ -1,5 +1,5 @@
 /**
- * Modelos de dominio de GreenLoop.
+ * Modelos de dominio de RIU.
  * Basados en los blueprints de ARCHITECTURE.md (§4), adaptados al frontend:
  * los "Green Points" se llaman **Flora** y los montos van en pesos chilenos.
  */
@@ -23,7 +23,6 @@ export interface UserProfile {
   address: string
   flora: number
   totalCo2SavedKg: number
-  currentStreakDays: number
   containersInCirculation: number
   returnedContainersCount: number
   wasteAvoidedItems: number
@@ -49,6 +48,8 @@ export interface Merchant {
   id: string
   slug: string
   name: string
+  /** true si es una cadena real: sus métricas son inventadas para la demo. */
+  isRealBrand?: boolean
   tagline: string
   category: string
   priceLevel: string
@@ -114,7 +115,7 @@ export interface LeaderboardEntry {
   name: string
   avatarUrl: string
   co2Kg: number
-  streakDays: number
+  containersReturned: number
   badge?: string
   isCurrentUser?: boolean
 }
